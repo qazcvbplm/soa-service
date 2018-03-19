@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    
+    <dubbo:application name="usermodel"  logger="slf4j"/>
+
+    <dubbo:registry protocol="zookeeper" address="zookeeper://47.92.66.39:2181" />
+
+    <dubbo:protocol name="dubbo" port="20880" />
+
+    <dubbo:provider timeout="15000" retries="0" delay="-1" />
+
+    <dubbo:consumer check="false" timeout="15000" />
+    <!-- service -->
+    <dubbo:service interface="sunwou.service.IUserService" ref="UserServiceImple"/>  
+    <!-- consumer -->
+   <!--  <dubbo:reference interface="sunwou.dubbo.service.HelloWord"   id="HelloWordImple" /> -->
+</beans>
