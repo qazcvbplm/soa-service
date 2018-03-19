@@ -37,11 +37,11 @@
         <property name="maxUploadSize" value="300000000"/>
     </bean>
 
-    <bean id="validator" 
+   <!--  <bean id="validator" 
           class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
         <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
         <property name="validationMessageSource" ref="messageSource"/>
-    </bean>
+    </bean> -->
 
     <!-- 静态资源访问 -->
     <mvc:default-servlet-handler/>

@@ -23,7 +23,7 @@
     </bean>
     
     <!-- 异常处理，返回json结果 -->
-    <bean id="exceptionResolver" class="sunwou.exception.ExceptionResolver"></bean>
+   <!--  <bean id="exceptionResolver" class="sunwou.exception.ExceptionResolver"></bean> -->
 
     <!-- <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
 

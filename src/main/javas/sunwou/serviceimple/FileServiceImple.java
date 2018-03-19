@@ -3,10 +3,11 @@ package sunwou.serviceimple;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.aggregation.Aggregation;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
 
-import com.mongodb.operation.AggregateOperation;
 
 import sunwou.entity.FileEntity;
 import sunwou.mongo.util.MongoBaseDaoImple;
@@ -21,25 +22,25 @@ public class FileServiceImple implements IFileService{
 
 	@Override
 	public String add(FileEntity file) {
-		// TODO Auto-generated method stub
 		return fileDao.add(file);
 	}
 
 	@Override
 	public int remove(String[] ids) {
-		// TODO Auto-generated method stub
-		return 0;
+		Update update=new Update();
+		update.set("isDelete", true);
+		int rs=fileDao.getMongoTemplate().
+				updateMulti(new Query(Criteria.where("sunwouId").in(ids)), update, FileEntity.tableName).getN();
+		return rs;
 	}
 
 	@Override
 	public List<FileEntity> fileList(QueryObject qo) {
-		// TODO Auto-generated method stub
 		return fileDao.find(qo);
 	}
 
 	@Override
 	public Long userSize(String userId) {
-		
 		return null;
 	}
 	

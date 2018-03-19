@@ -13,7 +13,7 @@
 
     <dubbo:consumer check="false" timeout="15000" />
     <!-- service -->
-    <dubbo:service interface="sunwou.service.IUserService" ref="UserServiceImple"/>  
+    <dubbo:service interface="sunwou.service.IFileService" ref="FileServiceImple"/>  
     <!-- consumer -->
    <!--  <dubbo:reference interface="sunwou.dubbo.service.HelloWord"   id="HelloWordImple" /> -->
 </beans>
